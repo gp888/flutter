@@ -6,18 +6,20 @@ android{
       sourceCompatibility 1.8
       targetCompatibility 1.8
     }
-    ndk {
-       abiFilters "armeabi-v7a"
+    defaultConfig{
+        ndk {
+          abiFilters "armeabi-v7a"
+        }
     }
 }
-
-git remote add origin https://github.com/gp888/flutter.git
+flutter create -t module my_flutter
+git submodule add https://github.com/gp888/flutter.git
 git submodule update
 
 在根目录的settings.gradle中添加如下配置
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
-  '{xxxxx你的flutter module目录}/.android/include_flutter.groovy'
+  'flutter_moudle/.android/include_flutter.groovy'
 ))
 
 
